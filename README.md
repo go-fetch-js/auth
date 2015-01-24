@@ -1,6 +1,8 @@
 # go-fetch-auth
 
-Basic HTTP authentication plugin for [go-fetch](https://www.npmjs.com/package/go-fetch).
+[![Circle CI](https://circleci.com/gh/go-fetch-js/auth.svg?style=svg)](https://circleci.com/gh/go-fetch-js/auth)
+
+Basic HTTP auth plugin for [go-fetch](https://www.npmjs.com/package/go-fetch).
 
 ## Installation
 
@@ -25,7 +27,7 @@ Basic HTTP authentication plugin for [go-fetch](https://www.npmjs.com/package/go
 
 ### auth(username, password)
 
-Create an instance of the authentication plugin with the specified username and passsword.
+Create the auth plugin using the specified username and password for authentication.
 
 ## License
 

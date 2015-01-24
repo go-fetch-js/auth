@@ -1,8 +1,9 @@
 {
   "name": "go-fetch-auth",
-  "description": "Basic HTTP authentication plugin for go-fetch.",
+  "description": "Basic HTTP auth plugin for go-fetch.",
   "keywords": [
     "auth",
+    "authentication",
     "basic",
     "http",
     "https",
