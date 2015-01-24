@@ -30,7 +30,7 @@ describe('go-fetch-auth', function() {
 
 	});
 
-	it('should work against a public test service online (assuming connection)', function(done) {
+	it('should authenticate against an online public test service (assuming connected to the internet)', function(done) {
 		this.timeout(10000);
 
 		HttpClient()
