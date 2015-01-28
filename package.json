@@ -14,10 +14,10 @@
   "version": "0.1.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:go-fetch-js/go-fetch-auth.git"
+    "url": "git@github.com:go-fetch-js/auth.git"
   },
   "bugs": {
-    "url": "https://github.com/go-fetch-js/go-fetch-auth/issues"
+    "url": "https://github.com/go-fetch-js/auth/issues"
   },
   "devDependencies": {
     "go-fetch": "^1.0.1"
