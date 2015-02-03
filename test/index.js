@@ -1,22 +1,29 @@
 var assert      = require('assert');
-var HttpClient  = require('go-fetch');
+var Client      = require('go-fetch');
 var auth        = require('..');
+var parseBody   = require('go-fetch-body-parser');
+var contentType = require('go-fetch-content-type');
 
 describe('go-fetch-auth', function() {
 
 	it('should set the header in the correct format', function(done) {
 
 		var
-			request = HttpClient().get('http://localhost/'),
-			response = null
+			request   = Client().get('http://localhost/'),
+			response  = new Client.Request(),
+			event     = new Client.Event({
+				name:     'before',
+				request:  request,
+				response: response
+			})
 		;
 
-		HttpClient()
+		Client()
 			.use(auth('steve.jobs', 'l33tH@ck3r'))
-			.emit('before', request, response, function(error, request, response) {
+			.emit(event, function(error, event) {
 
 				var
-					header    = (new Buffer(request.getHeader('Authorization').substr(6), 'base64').toString()),
+					header    = (new Buffer(event.request.getHeader('Authorization').substr(6), 'base64').toString()),
 					username  = header.split(':')[0],
 					password  = header.split(':')[1]
 				;
@@ -33,12 +40,13 @@ describe('go-fetch-auth', function() {
 	it('should authenticate against an online public test service (assuming connected to the internet)', function(done) {
 		this.timeout(10000);
 
-		HttpClient()
+		Client()
 			.use(auth('steve.jobs', 'l33tH@ck3r'))
-			.use(HttpClient.plugins.body())
+			.use(contentType)
+			.use(parseBody.json())
 			.get('http://httpbin.org/hidden-basic-auth/steve.jobs/l33tH@ck3r', function(error, response) {
-				var json = JSON.parse(response.getBody());
 				assert.equal(response.getStatus(), 200);
+				var json = response.getBody();
 				assert.equal(json.authenticated, true);
 				assert.equal(json.user, 'steve.jobs');
 				done(error)

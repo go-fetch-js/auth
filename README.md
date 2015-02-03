@@ -2,7 +2,7 @@
 
 [![Circle CI](https://circleci.com/gh/go-fetch-js/auth.svg?style=svg)](https://circleci.com/gh/go-fetch-js/auth)
 
-Basic HTTP auth plugin for [go-fetch](https://www.npmjs.com/package/go-fetch).
+Basic HTTP authentication.
 
 ## Installation
 

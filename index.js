@@ -1,17 +1,16 @@
-var HttpClient = require('go-fetch');
 
 /**
- * HTTP Authentication plugin for the go-fetch client.
+ * Basic HTTP authentication.
  *  - only supports the `basic` method at the moment - feel free to submit a PR
  * @param   {string} username
  * @param   {string} password
- * @returns {function(HttpClient)}
+ * @returns {function(Client)}
  */
 module.exports = function(username, password) {
 	return function(client) {
-		client.on('before', function(request, response) {
+		client.on('before', function(event) {
 
-			request.setHeader(
+			event.request.setHeader(
 				'Authorization',
 				'Basic '+(new Buffer(username+':'+password)).toString('base64')
 			);

@@ -1,6 +1,6 @@
 {
   "name": "go-fetch-auth",
-  "description": "Basic HTTP auth plugin for go-fetch.",
+  "description": "Basic HTTP authentication.",
   "keywords": [
     "auth",
     "authentication",
@@ -11,7 +11,7 @@
     "request",
     "fetch"
   ],
-  "version": "0.1.0",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:go-fetch-js/auth.git"
@@ -20,10 +20,12 @@
     "url": "https://github.com/go-fetch-js/auth/issues"
   },
   "devDependencies": {
-    "go-fetch": "^1.0.1"
+    "go-fetch": "^2.0.0",
+    "go-fetch-body-parser": "^2.0.0",
+    "go-fetch-content-type": "^0.1.0"
   },
   "peerDependencies": {
-    "go-fetch": "^1.0.1"
+    "go-fetch": "^2.0.0"
   },
   "scripts": {
     "test": "mocha"
