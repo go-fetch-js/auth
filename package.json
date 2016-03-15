@@ -1,5 +1,6 @@
 {
   "name": "go-fetch-auth",
+  "version": "2.0.0",
   "description": "Basic HTTP authentication.",
   "keywords": [
     "auth",
@@ -11,23 +12,22 @@
     "request",
     "fetch"
   ],
-  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:go-fetch-js/auth.git"
   },
-  "bugs": {
-    "url": "https://github.com/go-fetch-js/auth/issues"
+  "peerDependencies": {
+    "go-fetch": ">=3.0.0"
   },
   "devDependencies": {
-    "go-fetch": "^2.0.0",
-    "go-fetch-body-parser": "^2.0.0",
-    "go-fetch-content-type": "^0.1.0"
-  },
-  "peerDependencies": {
-    "go-fetch": "^2.0.0"
+    "chai": "^3.5.0",
+    "go-fetch": "^3.0.0",
+    "go-fetch-json": "^1.0.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3"
   },
   "scripts": {
     "test": "mocha"
-  }
+  },
+  "license": "MIT"
 }

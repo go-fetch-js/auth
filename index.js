@@ -7,15 +7,8 @@
  * @returns {function(Client)}
  */
 module.exports = function(username, password) {
-	return function(client) {
-		client.on('before', function(event) {
-
-			event.request.setHeader(
-				'Authorization',
-				'Basic '+(new Buffer(username+':'+password)).toString('base64')
-			);
-
-		});
-
-	};
+	return client => client.before((req, next) => {
+    req.headers['Authorization'] = 'Basic '+(new Buffer(username+':'+password)).toString('base64');
+    next(null, req);
+  });
 };
