@@ -3,7 +3,7 @@ const Client = require('go-fetch');
 const auth = require('..');
 
 new Client()
-	.use(auth('steve.jobs', 'l33tH@ck3r'))
+	.use(auth.basic('steve.jobs', 'l33tH@ck3r'))
 	.get('http://httpbin.org/hidden-basic-auth/steve.jobs/l33tH@ck3r')
     .then(res => {
       console.log(res.status);

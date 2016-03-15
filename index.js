@@ -1,14 +1,28 @@
+'use strict';
+
+module.exports = {};
 
 /**
- * Basic HTTP authentication.
- *  - only supports the `basic` method at the moment - feel free to submit a PR
+ * Basic HTTP authentication
  * @param   {string} username
  * @param   {string} password
  * @returns {function(Client)}
  */
-module.exports = function(username, password) {
+module.exports.basic = function(username, password) {
 	return client => client.before((req, next) => {
-    req.headers['Authorization'] = 'Basic '+(new Buffer(username+':'+password)).toString('base64');
+    req.headers['Authorization'] = `Basic ${(new Buffer(username+':'+password)).toString('base64')}`;
+    next(null, req);
+  });
+};
+
+/**
+ * Bearer HTTP authentication
+ * @param   {string} token
+ * @returns {function(Client)}
+ */
+module.exports.bearer = function(token) {
+  return client => client.before((req, next) => {
+    req.headers['Authorization'] = `Bearer ${token}`;
     next(null, req);
   });
 };
